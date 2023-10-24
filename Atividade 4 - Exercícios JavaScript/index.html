@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tela inicial</title>
+    <link rel="stylesheet" href="estilo_index.css">
+
+    <script>
+        function atualizarDataHora() {
+            // Cria um objeto de data
+            var dataHora = new Date();
+            
+            // Formate a data e hora como desejar (por exemplo, 'dd/mm/yyyy HH:MM:SS')
+            var formato = 'dd/mm/yyyy HH:MM:SS';
+            
+            // Substitua os marcadores de lugar no formato com os valores reais
+            var dataHoraFormatada = formato
+                .replace('dd', ('0' + dataHora.getDate()).slice(-2))
+                .replace('mm', ('0' + (dataHora.getMonth() + 1)).slice(-2))
+                .replace('yyyy', dataHora.getFullYear())
+                .replace('HH', ('0' + dataHora.getHours()).slice(-2))
+                .replace('MM', ('0' + dataHora.getMinutes()).slice(-2))
+                .replace('SS', ('0' + dataHora.getSeconds()).slice(-2));
+
+            // Atualiza o conteúdo do elemento no rodapé com a data e hora formatada
+            document.getElementById('data-hora').textContent = dataHoraFormatada;
+        }
+
+        // Chame a função para atualizar a data e hora assim que a página for carregada
+        window.onload = function() {
+            atualizarDataHora(); // Atualize imediatamente
+            // Atualize a cada segundo (1000 milissegundos)
+            setInterval(atualizarDataHora, 1000);
+        };
+    </script>
+
+</head>
+<body>
+<section>
+<div>
+    <h1>Calculator system plus</h1>
+    <h3>Sistema empresarial</h3>
+</div>
+    <div class="container">
+        <div class="button-group">
+        <a href="Calculadora de horas extras.html" class="botao-link">Horas extras</a>
+        <a href="Calculadora de aumento salarial.html" class="botao-link">Aumento salarial</a>
+        <a href="Calculadora de transporte.html" class="botao-link">Transporte coletivo</a>
+        </div>
+    </div>
+    <div class="container2">
+        <p>Dicas do sistema:</p>
+        <ul>
+        <li>Realize backups diários</li>
+        <li>Troque a senha regularmente a cada 6 meses</li>
+        <li>Faça logout após o uso do sistema</li>
+        <li>Ative a autenticação de duas etapas</li>
+        <li>Relate incidentes para nossa equipe de suporte</li>
+        </ul>
+    </div>
+</section>
+<footer>
+    <p>Data e Hora: <span id="data-hora"></span></p>
+</footer>
+</body>
+</html>

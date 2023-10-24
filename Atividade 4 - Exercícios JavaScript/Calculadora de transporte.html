@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 2</title>
+    <link rel="stylesheet" href="estilo.css">
+    <script>
+        function atualizarDataHora() {
+            // Cria um objeto de data
+            var dataHora = new Date();
+            
+            // Formate a data e hora como desejar (por exemplo, 'dd/mm/yyyy HH:MM:SS')
+            var formato = 'dd/mm/yyyy HH:MM:SS';
+            
+            // Substitua os marcadores de lugar no formato com os valores reais
+            var dataHoraFormatada = formato
+                .replace('dd', ('0' + dataHora.getDate()).slice(-2))
+                .replace('mm', ('0' + (dataHora.getMonth() + 1)).slice(-2))
+                .replace('yyyy', dataHora.getFullYear())
+                .replace('HH', ('0' + dataHora.getHours()).slice(-2))
+                .replace('MM', ('0' + dataHora.getMinutes()).slice(-2))
+                .replace('SS', ('0' + dataHora.getSeconds()).slice(-2));
+
+            // Atualiza o conteúdo do elemento no rodapé com a data e hora formatada
+            document.getElementById('data-hora').textContent = dataHoraFormatada;
+        }
+
+        // Chame a função para atualizar a data e hora assim que a página for carregada
+        window.onload = function() {
+            atualizarDataHora(); // Atualize imediatamente
+            // Atualize a cada segundo (1000 milissegundos)
+            setInterval(atualizarDataHora, 1000);
+        };
+    </script>
+</head>
+<body>
+    <div class="box">
+        <h1>Calculadora de transporte</h1>
+        <label for="funcionarios">Informe a quantidade de funcionários:</label>
+        <input type="number" name="funcionarios" id="funcionarios">
+        <label for="dias-uteis">Informe a quantidade de dias úteis:</label>
+        <input type="number" name="dias-uteis" id="dias-uteis">
+        <p id="res">Resultado: </p>
+        <a href="Calculadora de aumento salarial.html">
+        <button class="triangular-button">Aumento Salarial</button>
+        </a>
+        <button onclick="calcularCusto()"id="voltar">Calcular</button>
+    </div>
+    <a href="index.html">
+    <button id="voltar">Voltar</button>
+    </a>
+    <script src="codigo3.js"></script>
+    <footer>
+        <p>Data e Hora: <span id="data-hora"></span></p>
+    </footer>
+</body>
+</html>
