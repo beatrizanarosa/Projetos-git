@@ -1,5 +1,4 @@
 # Portfólio de Atividades de Programação Web
-Front-End
 Este repositório contém as atividades
 realizadas durante o segundo semestre de
 2023 na unidade curricular de Programação
